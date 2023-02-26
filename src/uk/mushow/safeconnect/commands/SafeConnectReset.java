@@ -23,7 +23,7 @@ public class SafeConnectReset implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length != 1) {
-            sender.sendMessage(plugin.getConfig("messages.reset_usage"));
+            sender.sendMessage(plugin.applyColorCodes(plugin.getConfig("messages.reset_usage")));
             return false;
         }
 
