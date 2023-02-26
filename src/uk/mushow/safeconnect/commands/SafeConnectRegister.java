@@ -20,9 +20,9 @@ public class SafeConnectRegister implements CommandExecutor, LoginRegisterIntera
     private final Connection connection;
     private final SafeConnectPlugin plugin;
 
-    public SafeConnectRegister(LoginRegisterHandler loginRegisterHandler, Connection connection, SafeConnectPlugin plugin) {
+    public SafeConnectRegister(LoginRegisterHandler loginRegisterHandler, SafeConnectPlugin plugin) {
         this.handler = loginRegisterHandler;
-        this.connection = connection;
+        this.connection = handler.getConnection();
         this.plugin = plugin;
     }
 

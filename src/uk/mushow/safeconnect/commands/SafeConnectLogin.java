@@ -22,9 +22,9 @@ public class SafeConnectLogin implements CommandExecutor, LoginRegisterInteracti
     private final SafeConnectPlugin plugin;
     private final String tableName;
 
-    public SafeConnectLogin(LoginRegisterHandler handler, Connection connection, SafeConnectPlugin plugin) {
+    public SafeConnectLogin(LoginRegisterHandler handler, SafeConnectPlugin plugin) {
         this.handler = handler;
-        this.connection = connection;
+        this.connection = handler.getConnection();
         this.plugin = plugin;
         this.tableName = plugin.getConfig().getString("database.table");
     }

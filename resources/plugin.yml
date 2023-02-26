@@ -10,3 +10,6 @@ commands:
     description: Register yourself on the database
   login:
     description: Login yourself to the server
+  reset:
+    description: Reset the password of a user
+    permission: safeconnect.admin
