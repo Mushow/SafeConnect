@@ -13,6 +13,7 @@ And with compatibility ranging from version 1.8.8 to 1.12.2, you can be sure tha
 - Database support for flexible storage options
 - Multi-world support (BungeeCord is coming)
 - Compatible with Minecraft versions 1.8.8 to 1.12.2
+- Manage your user passwords with a reset
 
 
 ## Installation
@@ -34,9 +35,6 @@ database:
 ## Upcoming features
 
 - Add BungeeCord support
-
-- Add user management tools
-
 
 ## License
 
