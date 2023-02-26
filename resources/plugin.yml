@@ -1,0 +1,12 @@
+name: SafeConnect
+version: 1.0.0
+description:
+  This Minecraft plugin provides a secure login/register feature for players to avoid account takeovers for cracked versions. 
+  Passwords are securely stored in a database using the Argon2ID hash algorithm.
+main: uk.mushow.safeconnect.SafeConnectPlugin
+
+commands:
+  register:
+    description: Register yourself on the database
+  login:
+    description: Login yourself to the server

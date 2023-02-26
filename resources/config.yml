@@ -1,0 +1,40 @@
+# Your database configuration, database and table will be created if not existing
+database:
+  host: "localhost"
+  port: "8889"
+  username: "james"
+  password: "james"
+  name: "james"
+  table: "user_accounts"
+
+# The world where the player use Login / Register commands must not be existing as it will be created void
+world:
+  name: "hub"
+
+# Fully-customise your experience using your personalised messages
+messages:
+  interval: 10
+  login: "&7[&b&lSafeConnect&7] &bPlease use &7/&blogin \"password\""
+  register: "&7[&b&lSafeConnect&7] &bPlease use &7/&bregister \"password\" \"password\""
+  login_try: "&7[&b&lSafeConnect&7] &bYour account doesn't exist yet. Please register instead"
+  register_try: "&7[&b&lSafeConnect&7] &bYour account already exists. Please login instead"
+  login_failed: "&7[&b&lSafeConnect&7] &bIncorrect password"
+  register_failed: "&7[&b&lSafeConnect&7] &bPlease match your password"
+  login_success: "&7[&b&lSafeConnect&7] &aSuccessfully logged in! Redirecting.."
+  register_success: "&7[&b&lSafeConnect&7] &aSuccessfully registered! Redirecting.."
+  password_requirements: "&7[&b&lSafeConnect&7] &bPassword requirements&7:
+   \n
+   \n
+   &8- &7A minimum of &b8 &7characters\n
+   &8- &7At least one &blowercase &7character\n
+   &8- &7At least one &buppercase &7character\n
+   &8- &7At least one &bdigit &7character\n
+   &8- &7At least one &bspecial &7character\n"
+
+# World where the player is redirected after Register / Login
+redirect:
+  world: "world"
+  x: "100"
+  y: "70"
+  z: "100"
+  server: "none"
