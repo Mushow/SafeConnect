@@ -14,6 +14,7 @@ world:
 # Fully-customise your experience using your personalised messages
 messages:
   interval: 10
+  reset_usage:  "&7[&b&lSafeConnect&7] &bPlease use &7/&breset &7<&bplayer&7> &bto reset their password&7."
   player_not_found: "&7[&b&lSafeConnect&7] &bThe player was not found in the database&7."
   reset: "&7[&b&lSafeConnect&7] &bThe passord has been successfuly reset for &7"
   login: "&7[&b&lSafeConnect&7] &bPlease use &7/&blogin \"password\""
