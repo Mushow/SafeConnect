@@ -41,7 +41,7 @@ public class SafeConnectPlugin extends JavaPlugin {
     }
 
     private void createWorldIfNotExist(String worldName, World spawnWorld) {
-        if(spawnWorld == null) return;
+        if(spawnWorld != null) return;
 
         WorldCreator wc = new WorldCreator(worldName);
         wc.type(WorldType.FLAT);
