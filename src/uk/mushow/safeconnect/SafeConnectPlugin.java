@@ -4,7 +4,6 @@ import org.bukkit.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import uk.mushow.safeconnect.commands.SafeConnectLogin;
 import uk.mushow.safeconnect.commands.SafeConnectRegister;
-import uk.mushow.safeconnect.commands.SafeConnectReset;
 import uk.mushow.safeconnect.database.LoginRegisterHandler;
 import uk.mushow.safeconnect.database.SafeConnectDatabase;
 import uk.mushow.safeconnect.listener.SafeConnectListener;
@@ -13,7 +12,7 @@ import java.sql.Connection;
 
 public class SafeConnectPlugin extends JavaPlugin {
 
-    private LoginRegisterHandler handler;
+    private LoginRegisterHandler loginRegisterHandler;
     private Location location;
     private Location redirectLocation;
 
@@ -24,7 +23,7 @@ public class SafeConnectPlugin extends JavaPlugin {
         SafeConnectDatabase safeConnectDatabase = new SafeConnectDatabase(this);
         Connection connection = safeConnectDatabase.init();
 
-        handler = new LoginRegisterHandler(connection, this);
+        loginRegisterHandler = new LoginRegisterHandler(connection, this);
         registerEvents();
         registerCommands();
         createWorld();
@@ -50,8 +49,8 @@ public class SafeConnectPlugin extends JavaPlugin {
     }
 
     private void setSpawnLocation(World spawnWorld) {
+        if(spawnWorld == null) return;
         this.location = new Location(spawnWorld, 0, 30, 0, 90f, 10f);
-        spawnWorld.setTime(13800);
         this.location.clone().add(0, -1, 0).getBlock().setType(Material.BARRIER);
     }
 
@@ -75,13 +74,12 @@ public class SafeConnectPlugin extends JavaPlugin {
     }
 
     private void registerEvents() {
-        getServer().getPluginManager().registerEvents(new SafeConnectListener(handler, this), this);
+        getServer().getPluginManager().registerEvents(new SafeConnectListener(loginRegisterHandler, this), this);
     }
 
     private void registerCommands() {
-        getServer().getPluginCommand("register").setExecutor(new SafeConnectRegister(handler, this));
-        getServer().getPluginCommand("login").setExecutor(new SafeConnectLogin(handler, this));
-        getServer().getPluginCommand("reset").setExecutor(new SafeConnectReset(handler.getConnection(), this));
+        getServer().getPluginCommand("register").setExecutor(new SafeConnectRegister(loginRegisterHandler, loginRegisterHandler.getConnection(), this));
+        getServer().getPluginCommand("login").setExecutor(new SafeConnectLogin(loginRegisterHandler, loginRegisterHandler.getConnection(), this));
     }
 
     public Location getLocation() {
